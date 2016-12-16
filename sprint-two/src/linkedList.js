@@ -30,7 +30,7 @@ var LinkedList = function() {
     console.log(nextNode);
     var find = function(node) {
       if (nextNode.value === target) {
-        found = true;
+        found = true ;
       }
       else if (nextNode.next) {
         nextNode = nextNode.next;
