@@ -27,14 +27,12 @@ var LinkedList = function() {
   list.contains = function(target) {
     var found = false;
     var nextNode = list.head;
-    console.log(nextNode);
     var find = function(node) {
       if (nextNode.value === target) {
         found = true ;
       }
       else if (nextNode.next) {
         nextNode = nextNode.next;
-        console.log(nextNode);
         return find(nextNode);
       }
     };

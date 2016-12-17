@@ -21,7 +21,6 @@ treeMethods.contains = function(target) {
   var state = false;
   var helper = function (currentChild) {
     if (currentChild.value === target) {
-      console.log(currentChild.value, "value of current chidl");
       return state = true;
     } else if (!!currentChild.children) {
       for (var i = 0; i < currentChild.children.length; i++) {
