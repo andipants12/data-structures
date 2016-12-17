@@ -33,7 +33,6 @@ Graph.prototype.removeNode = function(node) {
   var removed = this.storage[node];
   for (var i = 0; i < this.storage[node].edges.length; i++) {
     this.removeEdge(this.storage[node].edges[i], this.storage[node].node);
-    console.log(this.storage[node].edges[i], this.storage[node].node, 'edges?')
   }
   delete this.storage[node];
   return removed;
@@ -61,11 +60,8 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-  console.log('invoked');
   if (this.storage[fromNode]) {
-    console.log(this.storage[fromNode], '1st');
     if (this.storage[fromNode].edges) {
-      console.log(this.storage[fromNode], '2nd');
       for (var i = 0; i < this.storage[fromNode].edges.length; i++) {
         if (this.storage[fromNode].edges[i] === toNode) {
           this.storage[fromNode].edges.splice(i, 1) && this.storage[toNode].edges.splice(i, 1);
@@ -78,7 +74,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
   for (var key in this.storage) {
-    cb(this.storage[key], key, this.storage);
+    cb(this.storage[key].node, key, this.storage);
   }
 };
 
